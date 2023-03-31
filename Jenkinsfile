@@ -8,7 +8,7 @@ pipeline {
         bat './gradlew spotlessApply'
         // Affichage des fichiers traités par Spotless
         bat 'echo "Spotless a traité les fichiers suivants:"'
-        bat 'find . -name "*.java" | xargs ls -l'
+        bat 'dir /s /b *.java'
       }
     }
 
