@@ -23,10 +23,11 @@ public class CourseAddRestController {
 
 	@Autowired
 	public CourseAddRestController(CourseAddService courseAddService) {
+
 		this.courseAddService = courseAddService;
 	}
 
-	@PostMapping(consumes = { "application/json" }, produces = { "application/json" })
+	@PostMapping(consumes = {"application/json"}, produces = {"application/json"})
 	@Operation(summary = "Ajoute un cours", description = "Ajoute un nouveau cours en base de données avec un identifiant généré", operationId = "addCourse")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<CourseDto> execute(@RequestBody CourseDto courseDto) {

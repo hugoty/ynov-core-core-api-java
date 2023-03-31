@@ -12,7 +12,7 @@ public class PlannerCoreCoreApiJavaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PlannerCoreCoreApiJavaApplication.class, args);
 	}
-	
+
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {

@@ -12,12 +12,12 @@ import fr.ynov.planner.core.course.repository.CourseRepository;
 public class CourseListService {
 
 	private final CourseRepository courseRepository;
-	
+
 	@Autowired
 	public CourseListService(CourseRepository courseRepository) {
 		this.courseRepository = courseRepository;
 	}
-	
+
 	public List<Course> execute() {
 		List<Course> courses = courseRepository.findAll();
 		return courses;

@@ -16,12 +16,12 @@ import fr.ynov.planner.core.student.service.StudentListService;
 public class StudentListRestController {
 
 	private final StudentListService studentListService;
-	
+
 	@Autowired
 	public StudentListRestController(StudentListService studentListService) {
 		this.studentListService = studentListService;
 	}
-	
+
 	@GetMapping()
 	public ResponseEntity<List<Student>> execute() {
 		List<Student> students = studentListService.execute();

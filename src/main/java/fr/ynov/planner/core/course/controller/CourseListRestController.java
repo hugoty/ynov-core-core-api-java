@@ -21,15 +21,15 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public class CourseListRestController {
 
 	private final CourseListService courseListService;
-	
+
 	@Autowired
 	public CourseListRestController(CourseListService courseListService) {
 		this.courseListService = courseListService;
 	}
-	
-	@GetMapping(produces = { "application/json" })
-    @Operation(summary = "Liste des cours", description = "Liste les cours existants en base de données", operationId = "listCourses")
-    @ResponseStatus(HttpStatus.OK)
+
+	@GetMapping(produces = {"application/json"})
+	@Operation(summary = "Liste des cours", description = "Liste les cours existants en base de données", operationId = "listCourses")
+	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<List<Course>> execute() {
 		List<Course> courses = courseListService.execute();
 		return ResponseEntity.ok(courses);

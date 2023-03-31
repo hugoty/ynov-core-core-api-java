@@ -10,12 +10,12 @@ import fr.ynov.planner.core.course.repository.CourseRepository;
 public class CourseGetService {
 
 	private final CourseRepository courseRepository;
-	
+
 	@Autowired
 	public CourseGetService(CourseRepository courseRepository) {
 		this.courseRepository = courseRepository;
 	}
-	
+
 	public Course execute(Long id) {
 		Course course = courseRepository.getReferenceById(id);
 		return course;

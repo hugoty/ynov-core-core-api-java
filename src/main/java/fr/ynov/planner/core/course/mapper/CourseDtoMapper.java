@@ -13,7 +13,7 @@ public class CourseDtoMapper {
 		courseDto.setId(course.getId());
 		courseDto.setTitle(course.getTitle());
 		courseDto.setDescription(course.getDescription());
-		
+
 		return courseDto;
 	}
 }

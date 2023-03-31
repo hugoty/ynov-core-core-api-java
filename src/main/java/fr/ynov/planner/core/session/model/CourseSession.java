@@ -26,15 +26,15 @@ public class CourseSession {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column(name = "session_date")
 	private LocalDate sessionDate;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST })
+	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST})
 	@JoinColumn(name = "course_id")
 	private Course course;
 
-	@ManyToMany(cascade = { CascadeType.ALL })
+	@ManyToMany(cascade = {CascadeType.ALL})
 	@JoinTable(name = "course_session_student_assignment")
 	private Set<Student> assignedStudents;
 
@@ -55,17 +55,17 @@ public class CourseSession {
 	}
 
 	public Set<Student> getAssignedStudents() {
-		if(assignedStudents == null) {
+		if (assignedStudents == null) {
 			assignedStudents = new HashSet<>();
 		}
-		
+
 		return assignedStudents;
 	}
 
 	public void setAssignedStudents(Set<Student> assignedStudents) {
 		this.assignedStudents = assignedStudents;
 	}
-	
+
 	public LocalDate getSessionDate() {
 		return sessionDate;
 	}
