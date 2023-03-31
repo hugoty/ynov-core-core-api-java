@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'fr.ynov'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 sourceCompatibility = '17'
 
 configurations {
@@ -33,6 +33,30 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+apply plugin: 'maven-publish'
+publishing {
+	publications {
+		maven(MavenPublication) {
+			artifact("build/libs/planner-core-core-api-java-$version"+".jar") {
+				extension 'jar'
+			}
+		}
+	}
+	repositories {
+		maven {
+			name 'nexus'
+			url 'http://nexus-ynov-sandbox.asys-cloud.fr:8081/repository/maven-releases/'
+			allowInsecureProtocol true
+			credentials {
+				username project.repoUser
+				password project.repoPassword
+			}
+		}
+	}
+}
+
+
 spotless {
 	java {
 		lineEndings 'GIT_ATTRIBUTES'

@@ -6,6 +6,9 @@ pipeline {
       steps {
         // Exécution de la tâche spotlessApply
         sh './gradlew spotlessApply'
+        // Affichage des fichiers traités par Spotless
+        sh 'echo "Spotless a traité les fichiers suivants:"'
+        sh 'find . -name "*.java" | xargs ls -l'
       }
     }
 
