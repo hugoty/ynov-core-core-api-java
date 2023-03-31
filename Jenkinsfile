@@ -29,10 +29,9 @@ pipeline {
 
     stage('Publish to Nexus') {
       steps {
-        withCredentials([usernamePassword(credentialsId: 'nexus-credentials', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
           sh './gradlew publish'
         }
       }
     }
   }
-}
+
