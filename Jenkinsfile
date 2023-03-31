@@ -22,9 +22,9 @@ pipeline {
       }
     }
   }
-}
-
-success {
-  // Archivage des artefacts en cas de succès
-  archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true
+  post {
+    always {
+      archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true
+    }
+  }
 }
