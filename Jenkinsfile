@@ -29,7 +29,7 @@ pipeline {
 
     stage('Publish to Nexus') {
       steps {
-          sh './gradlew publish'
+          bat './gradlew publish'
         }
       }
     }
