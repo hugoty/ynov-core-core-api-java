@@ -21,10 +21,18 @@ pipeline {
         bat './gradlew clean build'
       }
     }
-  }
-  post {
-    always {
-      archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true
+    stage('Archive Artifacts') {
+      steps {
+        archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true
+      }
+    }
+
+    stage('Publish to Nexus') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'nexus-credentials', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
+          sh './gradlew publish'
+        }
+      }
     }
   }
 }
